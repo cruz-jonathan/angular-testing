@@ -1,0 +1,32 @@
+<h1>Make sure table is alive</h1>
+
+<h4>Basic mat-select</h4>
+<mat-form-field>
+  <mat-label>Test</mat-label>
+  <mat-select>
+    <mat-option value="Test 1">Test 1</mat-option>
+    <mat-option value="Test 2">Test 2</mat-option>
+    <mat-option value="Test 3">Test 3</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<table>
+  <tr>
+    <td>No.</td>
+    <td>Name</td>
+    <td>Weight</td>
+    <td>Symbol</td>
+  </tr>
+
+  <tr *ngFor="let element of elements; index as index">
+    <td>
+        <input [formControl]="getControl(index, 'position')" focusable (keydown.enter)="updateField(index, 'position')"/>
+    </td>
+
+    <td>
+        <input [formControl]="getControl(index, 'name')" focusable (keyup.enter)="updateField(index, 'name')"/>
+    </td>
+    <td>{{ element.weight }}</td>
+    <td>{{ element.symbol }}</td>
+  </tr>
+</table>
